@@ -93,12 +93,6 @@ REACT_APP_API_BASE_URL=http://localhost:5000
 REACT_APP_IMGBB_API_KEY=your_imgbb_api_key
 ```
 
-### **📜 License**
-
-This project is open-source and available under the MIT License.
-
----
-
 ✨ **Happy Coding!** 🚀
 
 
@@ -227,10 +221,7 @@ globetrotter-backend/
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License.
+.
 
 ## Contact
 
