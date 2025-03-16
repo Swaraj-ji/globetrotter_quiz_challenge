@@ -81,7 +81,7 @@ To set up the project locally, follow these steps:
    ```
 4. **Visit in browser:**
    ```
-   http://localhost:3000/
+  https://globetrotter-quiz-challenge.onrender.com/
    ```
 
 ### **📌 Environment Variables**
@@ -101,5 +101,140 @@ This project is open-source and available under the MIT License.
 
 ✨ **Happy Coding!** 🚀
 
+
+
+# Globetrotter Backend
+
+Globetrotter is a full-stack travel guessing game. This backend application is built with Node.js, Express, and MongoDB (using Mongoose) to handle user management, game logic, challenge invites, and leaderboards.
+
+## Features
+
+- **User Management**
+  - Register new users
+  - Retrieve user profiles
+  - Update user scores and maintain game history
+
+- **Destination Management**
+  - Retrieve a random destination along with multiple-choice options
+  - Store and validate destination details including clues, fun facts, and trivia
+
+- **Game Logic**
+  - Check user answers and update game statistics
+  - Provide real-time feedback on answer correctness
+
+- **Challenge/Invite Feature**
+  - Create challenge invitations with a unique invite code
+  - Allow users to accept challenges and view invite details
+
+- **Leaderboard**
+  - Fetch and display a leaderboard based on user performance (success rate, correct answers)
+
+- **Error Handling**
+  - Global error handling middleware for consistent API responses
+
+## Tech Stack
+
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB, Mongoose ODM
+- **Utilities:** UUID (for generating invite codes), dotenv (for managing environment variables)
+
+## Folder Structure
+
+```
+globetrotter-backend/
+├── config/
+│   └── db.js                  // Database connection setup using Mongoose and dotenv.
+├── controllers/
+│   ├── challengeController.js // Handles challenge creation, retrieval, and acceptance.
+│   ├── destinationController.js // Retrieves a random destination with options.
+│   ├── gameController.js      // Checks game answers and updates user statistics.
+│   ├── leaderboardController.js // Fetches and sorts user data to generate the leaderboard.
+│   └── userController.js      // Manages user registration, profile retrieval, and score updates.
+├── middleware/
+│   └── errorHandler.js        // Global error handling middleware.
+├── models/
+│   ├── Challenge.js           // Mongoose schema/model for challenges.
+│   ├── Destination.js         // Mongoose schema/model for destinations.
+│   └── User.js                // Mongoose schema/model for users (includes stats and game history).
+├── routes/
+│   ├── challengeRoutes.js     // API routes for challenge endpoints.
+│   ├── destinationRoutes.js   // API routes for destination endpoints.
+│   ├── gameRoutes.js          // API routes for game operations (e.g., answer checking).
+│   ├── leaderboardRoutes.js   // API route for fetching leaderboard data.
+│   └── userRoutes.js          // API routes for user operations.
+├── .env                       // Environment variables (e.g., MONGO_URI, PORT).
+├── package.json               // Project dependencies, scripts, and configurations.
+└── server.js                  // Main entry point; sets up Express app, connects to MongoDB, and mounts middleware and routes.
+```
+
+## API Endpoints
+
+### Users
+- **POST /users/register**  
+  Registers a new user.
+- **GET /users/:username**  
+  Retrieves a user profile.
+- **PUT /users/:username/score**  
+  Updates user score and game history.
+
+### Destinations
+- **GET /destinations/random**  
+  Returns a random destination with multiple-choice options.
+
+### Game
+- **POST /game/check-answer**  
+  Checks if the provided answer is correct and updates user stats.
+
+### Challenges
+- **POST /challenges/create**  
+  Creates a new challenge invitation.
+- **GET /challenges/:inviteCode**  
+  Retrieves challenge details by invite code.
+- **POST /challenges/:inviteCode/accept**  
+  Allows a user to accept a challenge invitation.
+
+### Leaderboard
+- **GET /leaderboard**  
+  Returns a sorted leaderboard of users based on their performance.
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js** (v14 or later)
+- **MongoDB** instance (local or cloud)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd globetrotter-backend
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Create a `.env` file in the root directory** and add the following:
+   ```
+   MONGO_URI=your_mongo_connection_string
+   PORT=5000
+   NODE_ENV=development
+   ```
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For any inquiries or support, please contact [swarajsrivastava14@gmail.com](mailto:swarajsrivastava14@gmail.com).
+```
 
 
