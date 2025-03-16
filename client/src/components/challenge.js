@@ -5,6 +5,7 @@ import html2canvas from 'html2canvas';
 
 const ChallengePage = () => {
   const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  const API_URL_FRONTEND = process.env.REACT_APP_URL || "http://localhost:3000";
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -112,7 +113,7 @@ const ChallengePage = () => {
     ? ((userData.stats.correctAnswers / userData.stats.totalGames) * 100).toFixed(2)
     : 0;
 
-  const challengeLink = `http://localhost:3000/challenge/${inviteCode}`;
+  const challengeLink = `${API_URL_FRONTEND}/challenge/${inviteCode}`;
   const whatsappShareMessage = `🚀 I'm challenging you to play Globetrotter Quiz! 🌍\n👤 Username: ${userData.username}\n🎯 Score: ✅ ${userData.stats.correctAnswers} | ❌ ${userData.stats.incorrectAnswers}\n📊 Pass Rate: ${passRate}%\nJoin me here: ${challengeLink}`;
   const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappShareMessage)}`;
 
